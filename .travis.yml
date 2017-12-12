@@ -32,9 +32,8 @@ deploy:
     script:
        - docker rmi $REPO:$COMMIT
        - docker push $REPO
-    branches:
-      except:
-        - master
+    on:
+       condition: $TRAVIS_BRANCH != "master"
   - provider: script
     script: 
       - docker tag $REPO:$COMMIT $REPO:$TRAVIS_TAG
