@@ -1,6 +1,6 @@
 language: java
 script:
-  - java --version
+  - java version
 deploy:
   provider: releases
   on:
