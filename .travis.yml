@@ -13,10 +13,10 @@ env:
     - secure: "rZVVYXwmDDBXB6gk2aSG4DQnRec9sO4lDwLLy4uahpcOUr09agrpYWj66MTqd7+PXaCa/kl3cotcK5m3TuwX+S7yjeIXZGzQVR2+6CBbYj2zrIXNTIJjE5apA4Mz5rXDYuZDlybaAI4/5vRXAyC4QIOy7uWJ//54lDIgENQ9BaSSYPGza+YR1dGKAySw9r9zQmj7RY7txXvF8AC6slii6Ik/mj3jx8RBBnhwe/hcD6ZrN51jmWtCX1SMsXvoxAxJ0LQYTD8k2x7NXy0TdOwemj3sS5q2SGt3z6aDNTJMO1Q0PXSkmS94x5wCrN6stPWRuOIVyo7pLUsAcbEBpBpuXz0ROAX+akfU3UGWakepumDNrpR25XfeMUnFoan3wRNV2Uuuyp5obScoCNHXKsYTJti7DbdU+ffJddKy2gLHpdQd0owoGuDwsQrjzQpiTkaRWqQ8Ln6ajiJ9ABeSNPEoKJiHDW9kir8nT6P81Kmz2+r4eGXYLQ+vE3QLo/mQApnv659Drm+8axXSpOKk0cRSqvhM+PUX1qrkDcOIOkJcGHkqx5xRJ1AdSVXm0rxrqVPizIzNPskiOxlddAnnNumI1PFnr2Kj6QFy9p0CwK7yv3hwBGXdWcVNcLZUxFEJI7Q1ixMSDacQwEmRh/8PTeS5kdsZxCxDlVyJjvv1Oly4qdQ="
     - REPO=tellef/allure
     - COMMIT=${TRAVIS_COMMIT::8}
-    - VERSION=`date +%y.%-m.dev${COMMIT}`
 
 script:
   - ./gradlew build
+  - export VERSION=`date +%y.%-m.dev${COMMIT}`
   - docker build -t $REPO:$VERSION .
 
 after_success:
